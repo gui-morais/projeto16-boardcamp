@@ -11,3 +11,10 @@ export const newGameSchema = joi.object({
     categoryId: joi.number().integer().required(),
     pricePerDay: joi.number().greater(0).required()
 });
+
+export const newClientSchema = joi.object({
+    name: joi.string().required(),
+    phone: joi.string().min(10).max(11).regex(/^\d+$/).required(),
+    cpf: joi.string().length(11).regex(/^\d+$/).required(),
+    birthday: joi.date().required()
+});

@@ -9,6 +9,7 @@ import { getGames } from "../controllers/games/getGames.js";
 import { postGame } from "../controllers/games/postGame.js";
 import { getRentals } from "../controllers/rentals/getRentals.js";
 import { postRental } from "../controllers/rentals/postRental.js";
+import { putRental } from "../controllers/rentals/putRental.js";
 import { validateNewCategory } from "../middlewares/validateNewCategory.js";
 import { validateNewClient } from "../middlewares/validateNewClient.js";
 import { validateNewGame } from "../middlewares/validateNewGame.js";
@@ -26,5 +27,6 @@ router.get("/customers/:id", getClient);
 router.put("/customers/:id", validateUpdateClient, putClient);
 router.post("/rentals", validateNewRental, postRental);
 router.get("/rentals", getRentals);
+router.post("/rentals/:id/return", putRental);
 
 export default router;

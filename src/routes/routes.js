@@ -1,10 +1,13 @@
 import express from "express";
-import { getCategories } from "../controllers/getCategories.js";
-import { postCategorie } from "../controllers/postCategorie.js";
-import { validateNewCategorie } from "../middlewares/validateNewCategorie.js";
+import { getCategories } from "../controllers/categories/getCategories.js";
+import { postCategory } from "../controllers/categories/postCategory.js";
+import { postGame } from "../controllers/games/postGame.js";
+import { validateNewCategory } from "../middlewares/validateNewCategory.js";
+import { validateNewGame } from "../middlewares/validateNewGame.js";
 
 const router = express.Router();
-router.post("/categories", validateNewCategorie, postCategorie);
+router.post("/categories", validateNewCategory, postCategory);
 router.get("/categories", getCategories);
+router.post("/games", validateNewGame, postGame);
 
 export default router;

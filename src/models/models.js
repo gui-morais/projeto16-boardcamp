@@ -1,5 +1,13 @@
 import joi from "joi";
 
-export const newCategorieSchema = joi.object({
+export const newCategorySchema = joi.object({
     name: joi.string().required()
+});
+
+export const newGameSchema = joi.object({
+    name: joi.string().required(),
+    image: joi.string().uri().required(),
+    stockTotal: joi.number().greater(0).integer().required(),
+    categoryId: joi.number().integer().required(),
+    pricePerDay: joi.number().greater(0).required()
 });

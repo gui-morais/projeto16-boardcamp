@@ -7,9 +7,11 @@ import { postClient } from "../controllers/clients/postClient.js";
 import { putClient } from "../controllers/clients/putClient.js";
 import { getGames } from "../controllers/games/getGames.js";
 import { postGame } from "../controllers/games/postGame.js";
+import { postRental } from "../controllers/rentals/postRental.js";
 import { validateNewCategory } from "../middlewares/validateNewCategory.js";
 import { validateNewClient } from "../middlewares/validateNewClient.js";
 import { validateNewGame } from "../middlewares/validateNewGame.js";
+import { validateNewRental } from "../middlewares/validateNewRental.js";
 import { validateUpdateClient } from "../middlewares/validateUpdateClient.js";
 
 const router = express.Router();
@@ -21,5 +23,6 @@ router.post("/customers", validateNewClient, postClient);
 router.get("/customers", getClients);
 router.get("/customers/:id", getClient);
 router.put("/customers/:id", validateUpdateClient, putClient);
+router.post("/rentals", validateNewRental, postRental);
 
 export default router;

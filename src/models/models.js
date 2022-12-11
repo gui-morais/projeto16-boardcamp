@@ -18,3 +18,9 @@ export const newClientSchema = joi.object({
     cpf: joi.string().length(11).regex(/^\d+$/).required(),
     birthday: joi.date().required()
 });
+
+export const newRentalSchema = joi.object({
+    customerId: joi.number().greater(0).integer().required(),
+    gameId: joi.number().greater(0).integer().required(),
+    daysRented: joi.number().greater(0).integer().required()
+});
